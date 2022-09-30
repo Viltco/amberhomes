@@ -1,0 +1,118 @@
+<odoo>
+
+    <record id="view_crm_lead_form_inherit" model="ir.ui.view">
+        <field name="name">crm.lead.form.inherit</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//div[hasclass('oe_title')]//div[4]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='partner_id']" position="attributes">
+                <attribute name="string">Name</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='partner_name']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//group[1]/label[1]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//div[hasclass('o_address_format')]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='website']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='lang_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='user_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='team_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//group[3]/label[1]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//group[3]/div[hasclass('o_row')]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='email_cc']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='function']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//group[3]/label[3]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//group[3]/div[3]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//group[4]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//group[5]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//group[6]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//group[7]" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="mobile_2" widget="phone"/>
+                <field name="lead_type"
+                       decoration-warning="lead_type == 'secondary'"
+                       decoration-success="lead_type == 'primary'"/>
+                <field name="lead_state"
+                       decoration-danger="lead_state in ('invalid_number', 'wrong_number', 'do_not_call')"
+                       decoration-warning="lead_state == 'language_barrier'"
+                       decoration-primary="lead_state == 'call_back'"
+                       decoration-success="lead_state == 'interested'"
+                />
+                <field name="tag_ids" string="Disposition"/>
+            </xpath>
+
+            <xpath expr="////group[3]/div[4]" position="after">
+                <field name="proj_prop"/>
+                <field name="transaction_type"/>
+                <field name="budget_from"/>
+                <field name="budget_to"/>
+                <field name="source_lead_id"/>
+            </xpath>
+
+            <xpath expr="//notebook" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+        </field>
+    </record>
+
+    <record id="crm.menu_crm_lead_categ" model="ir.ui.menu">
+        <field name="name">Disposition</field>
+    </record>
+
+</odoo>    

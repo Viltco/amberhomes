@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_source_lead_tree" model="ir.ui.view">
+        <field name="name">source.lead.tree</field>
+        <field name="model">source.lead</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+
+        </field>
+    </record>
+    <record id="view_source_lead_form" model="ir.ui.view">
+        <field name="name">source.lead.form</field>
+        <field name="model">source.lead</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name" required="True"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_source_lead_view" model="ir.actions.act_window">
+        <field name="name">Source Lead</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">source.lead</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create Your Source of Lead Details!
+            </p>
+        </field>
+    </record>
+
+
+    <menuitem id="menu_item_source_lead"
+              name="Source of Lead"
+              parent="crm.crm_menu_config"
+              action="action_source_lead_view"
+              sequence="3"/>
+
+</odoo>
